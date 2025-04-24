@@ -17,14 +17,14 @@ We use Anaconda to manage the environment. Clone the repository and create the e
 ```bash
 git clone https://github.com/Mohaned5/PanFusion-SDXL
 cd PanFusion-SDXL
-conda env create -f environment_sdxl.yaml
-conda activate panfusion_sdxl
+conda env create -f environment.yaml
+conda activate panfusion
 ```
 
 If you encounter issues with conda resolving dependencies, try the strict version:
 
 ```bash
-conda env create -f environment_sdxl_strict.yaml
+conda env create -f environment_strict.yaml
 ```
 
 We use [wandb](https://www.wandb.com/) for logging and visualizing training. Create an account and log in:
@@ -40,7 +40,7 @@ Refer to the original wandb [report](https://wandb.ai/pidan1231239/pano_diffusio
 Pretrained SDXL-based checkpoints will be available at [COMING SOON](#). Once available, place the checkpoint (`last.ckpt`) in `logs/4142dlo4/checkpoints` and test the model:
 
 ```bash
-WANDB_MODE=offline WANDB_RUN_ID=4142dlo4 python main.py predict --data=Matterport3D --model=PanFusionSDXL --ckpt_path=last
+WANDB_MODE=offline WANDB_RUN_ID=4142dlo4 python main.py predict --data=Matterport3D --model=PanFusion --ckpt_path=last
 ```
 
 Generated images are saved in `logs/4142dlo4/predict`.
@@ -48,7 +48,7 @@ Generated images are saved in `logs/4142dlo4/predict`.
 For out-of-domain prompts:
 
 ```bash
-WANDB_MODE=offline WANDB_RUN_ID=4142dlo4 python main.py predict --data=Demo --model=PanFusionSDXL --ckpt_path=last
+WANDB_MODE=offline WANDB_RUN_ID=4142dlo4 python main.py predict --data=Demo --model=PanFusion --ckpt_path=last
 ```
 
 ## Data Preparation
@@ -188,32 +188,32 @@ Copy and rename the checkpoint to `weights`. Training takes ~3 hours on an NVIDI
 Train the SDXL-based model:
 
 ```bash
-WANDB_NAME=panfusion_sdxl python main.py fit --data=Matterport3D --model=PanFusionSDXL
+WANDB_NAME=panfusion python main.py fit --data=Matterport3D --model=PanFusion
 ```
 
 Training takes ~6 hours on 4x NVIDIA A100 GPUs. Logs are available at [wandb](https://wandb.ai/pidan1231239/pano_diffusion/runs/ad8103n1?nw=nwuserpidan1231239).
 
-Test with `WANDB_RUN_ID` as `PANFUSION_SDXL_ID`:
+Test with `WANDB_RUN_ID` as `PANFUSION_ID`:
 
 ```bash
-WANDB_RUN_ID=<PANFUSION_SDXL_ID> python main.py test --data=Matterport3D --model=PanFusionSDXL --ckpt_path=last
-WANDB_RUN_ID=<PANFUSION_SDXL_ID> python main.py test --data=Matterport3D --model=EvalPanoGen
+WANDB_RUN_ID=<PANFUSION_ID> python main.py test --data=Matterport3D --model=PanFusion --ckpt_path=last
+WANDB_RUN_ID=<PANFUSION_ID> python main.py test --data=Matterport3D --model=EvalPanoGen
 ```
 
-Results are saved in `logs/<PANFUSION_SDXL_ID>/test` and logged to wandb.
+Results are saved in `logs/<PANFUSION_ID>/test` and logged to wandb.
 
 ### Layout-conditioned Panorama Generation
 
 Finetune a ControlNet model for layout-conditioned generation:
 
 ```bash
-WANDB_NAME=panfusion_sdxl_lo python main.py fit --data=Matterport3D --model=PanFusionSDXL --trainer.max_epochs=100 --trainer.check_val_every_n_epoch=10 --model.ckpt_path=logs/<PANFUSION_SDXL_ID>/checkpoints/last.ckpt --model.layout_cond=True --data.layout_cond_type=distance_map --data.uncond_ratio=0.5
+WANDB_NAME=panfusion python main.py fit --data=Matterport3D --model=PanFusion --trainer.max_epochs=100 --trainer.check_val_every_n_epoch=10 --model.ckpt_path=logs/<PANFUSION_ID>/checkpoints/last.ckpt --model.layout_cond=True --data.layout_cond_type=distance_map --data.uncond_ratio=0.5
 ```
 
 Test with `WANDB_RUN_ID` as `PANFUSION_SDXL_LO_ID`:
 
 ```bash
-WANDB_RUN_ID=<PANFUSION_SDXL_LO_ID> python main.py test --data=Matterport3D --model=PanFusionSDXL --ckpt_path=last --model.layout_cond=True --data.layout_cond_type=distance_map
+WANDB_RUN_ID=<PANFUSION_SDXL_LO_ID> python main.py test --data=Matterport3D --model=PanFusion --ckpt_path=last --model.layout_cond=True --data.layout_cond_type=distance_map
 WANDB_RUN_ID=<PANFUSION_SDXL_LO_ID> python main.py test --data=Matterport3D --model=EvalPanoGen --data.manhattan_layout=True
 ```
 
