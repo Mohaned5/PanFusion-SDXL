@@ -6,8 +6,6 @@ Original Work by Cheng Zhang, Qianyi Wu, Camilo Cruz Gambardella, Xiaoshui Huang
 
 ### [Project Page](https://chengzhag.github.io/publication/panfusion) | [Paper](https://arxiv.org/abs/2404.07949)
 
-![teaser](images/teaser.png)
-
 ## Introduction
 
 This repository is a public adaptation of the [PanFusion](https://github.com/chengzhag/PanFusion) project, originally presented in the CVPR 2024 paper, migrated from Stable Diffusion 2.0 (SD2.0) to Stable Diffusion XL (SDXL) by Mohaned Abdulmahmood. PanFusion-SDXL enables high-quality 360° panorama image generation from text prompts, leveraging SDXL's enhanced capabilities. It includes data preprocessing, training, testing, and evaluation code, adapted for SDXL.
