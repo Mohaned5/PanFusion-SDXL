@@ -17,14 +17,8 @@ We use Anaconda to manage the environment. Clone the repository and create the e
 ```bash
 git clone https://github.com/Mohaned5/PanFusion-SDXL
 cd PanFusion-SDXL
-conda env create -f environment.yaml
-conda activate panfusion
-```
-
-If you encounter issues with conda resolving dependencies, try the strict version:
-
-```bash
 conda env create -f environment_strict.yaml
+conda activate panfusion
 ```
 
 We use [wandb](https://www.wandb.com/) for logging and visualizing training. Create an account and log in:
