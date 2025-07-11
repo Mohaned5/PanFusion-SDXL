@@ -44,6 +44,13 @@ For out-of-domain prompts:
 ```bash
 WANDB_MODE=offline WANDB_RUN_ID=4142dlo4 python main.py predict --data=Demo --model=PanFusion --ckpt_path=last
 ```
+## Example Outputs
+
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/0496d1bc-58fa-4695-b2ba-58252df27f2d" />
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/877b3151-3f1d-424d-b4ed-eddedb80f3b4" />
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/3f16405b-4dfb-46e0-8e01-22f72214cf74" />
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/b115ffe4-63ff-4d98-8f9e-47a5dd3f1373" />
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/753c83f2-a19e-401d-83c6-4616a3c1a158" />
 
 ## Data Preparation
 
