@@ -46,6 +46,14 @@ WANDB_MODE=offline WANDB_RUN_ID=4142dlo4 python main.py predict --data=Demo --mo
 ```
 ## Example Outputs
 
+### Matterport3D checkpoint (incomplete - 5 epochs in)
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/420867e7-9005-455e-b09b-2fd31215e973" />
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/73ac5456-4f11-48e7-9175-4df55cfe3715" />
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/356e9555-c39c-47e4-97c9-94bfe171a2c9" />
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/7c839ad2-6504-4015-b24d-214a69f3e431" />
+<img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/1508fd51-1cce-4de3-a0d6-a06d43fe74dd" />
+
+### Panime fine-tuned checkpoint (complete)
 <img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/0496d1bc-58fa-4695-b2ba-58252df27f2d" />
 <img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/877b3151-3f1d-424d-b4ed-eddedb80f3b4" />
 <img width="2048" height="1024" alt="Image" src="https://github.com/user-attachments/assets/3f16405b-4dfb-46e0-8e01-22f72214cf74" />
