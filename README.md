@@ -31,7 +31,13 @@ Refer to the original wandb [report](https://wandb.ai/pidan1231239/pano_diffusio
 
 ## Demo
 
-Pretrained SDXL-based checkpoints will be available at [COMING SOON](#). Once available, place the checkpoint (`last.ckpt`) in `logs/4142dlo4/checkpoints` and test the model:
+Pretrained SDXL-based checkpoints available:
+
+[Matterport3D Trained Checkpoint (Incomplete)](https://drive.google.com/file/d/1t0LbnZjWvvD4Vf_2z5XQzz0CtGCt6Uwr/view?usp=share_link)
+
+[Panime Trained Checkpoint for Anime-Style Imagery (Complete)](https://drive.google.com/file/d/1CwE_MrNDrm3k5Jze60QmtimpsEY0tHCw/view?usp=share_link)
+
+Place the checkpoint (`last.ckpt`) in `logs/4142dlo4/checkpoints` and test the model:
 
 ```bash
 WANDB_MODE=offline WANDB_RUN_ID=4142dlo4 python main.py predict --data=Matterport3D --model=PanFusion --ckpt_path=last
